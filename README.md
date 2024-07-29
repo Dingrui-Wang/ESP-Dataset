@@ -17,13 +17,11 @@ Emergent-scene safety is the key milestone for fully autonomous driving, and rel
 - ESP feature extraction and network encoder are introduced, which can be used to enhance existing backbones/algorithms seamlessly.
 
 <div align="center">
-    <div class="publication-video" style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/SsYsCZs2Sys?si=r0elQ9mFwKCl1hFw&amp;showinfo=0"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+
+Click the following Graphical Abstract for the illustration video!
+
+[![A teaser of ESP datset](static/images/graphical_abstract.png)](https://youtu.be/SsYsCZs2Sys?si=iXvVQ3KHNAICLutS)
 </div>
-
-
 
 ## News
 - [**Jul 24, 2024**] The full dataset is released.
