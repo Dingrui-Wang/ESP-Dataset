@@ -101,13 +101,15 @@ token
 
 
 ## Download
-This section provides a link to the Mini Split ESP-Dataset:
+This section provides a link to the Mini Split and the full version of ESP-Dataset:
 
 [Download ESP-Dataset Mini Split](https://drive.google.com/file/d/1LFtYyoKmPdx7luJsO5WhJFSwhg1jh9qd/view?usp=sharing)
 
-[Download ESP-Dataset Full Dataset](https://drive.google.com/drive/folders/1Yhv7y7owlYQ2bJF1m56iqPgsQKvEj0Ik?usp=sharing) 
+The full dataset contains three separate files: "tokens," "tokens_by_mons," and "maps." The "tokens_by_mons" file contains samples arranged by their respective moments, while the "tokens" file contains samples randomly grouped together. However, in terms of total samples, "tokens" and "tokens_by_mons" are equivalent.
 
-(The Full Dataset contains two separate files: one is "tokens" and the other is "tokens_by_mons". The latter contains samples arranged by their respective moments, while the former contains samples randomly put together.)
+[Download ESP-Dataset Full Dataset](https://huggingface.co/datasets/Etadingrui/ESP) 
+
+
 
 ## Citation
 If using our data in your research work, please cite the following paper:
@@ -115,7 +117,7 @@ If using our data in your research work, please cite the following paper:
 @article{dingrui2024esp,
       author    = {Wang, Dingrui and Lai, Zheyuan and Li, Yuda and Wu, Yi and Ma, Yuexin and Betz, Johannes and Yang, Ruigang and Li, Wei},
       title     = {ESP: Extro-Spective Prediction for Long-term Behavior Reasoning in Emergency Scenarios},
-      journal   = {ICRA},
+      journal   = {2024 IEEE International Conference on Robotics and Automation (ICRA)},
       year      = {2024},
     }
 ```
