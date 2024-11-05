@@ -105,10 +105,11 @@ This section provides a link to the Mini Split and the full version of ESP-Datas
 
 [Download ESP-Dataset Mini Split](https://drive.google.com/file/d/1LFtYyoKmPdx7luJsO5WhJFSwhg1jh9qd/view?usp=sharing)
 
-The full dataset contains three separate files: "tokens," "tokens_by_mons," and "maps." The "tokens_by_mons" file contains samples arranged by their respective moments, while the "tokens" file contains samples randomly grouped together. However, in terms of total samples, "tokens" and "tokens_by_mons" are equivalent.
+The full dataset contains three separate files: "tokens," "tokens_by_mons." The "tokens_by_mons" file contains samples arranged by their respective moments, while the "tokens" file contains samples randomly grouped together. However, in terms of total samples, "tokens" and "tokens_by_mons" are equivalent.
 
-[Download ESP-Dataset Full Dataset](https://huggingface.co/datasets/Etadingrui/ESP) 
+[Download ESP-Dataset Full Dataset](https://drive.google.com/drive/folders/1Yhv7y7owlYQ2bJF1m56iqPgsQKvEj0Ik?usp=sharing) 
 
+[Download ESP-Dataset Maps](https://huggingface.co/datasets/Etadingrui/ESP) 
 
 
 ## Citation
