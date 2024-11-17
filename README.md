@@ -22,7 +22,7 @@ Click the following Graphical Abstract for the illustration video!
 
 <div align="center">
 
-[![A teaser of ESP datset](static/images/graphical_abstract.png)](https://youtu.be/SsYsCZs2Sys?si=iXvVQ3KHNAICLutS)
+[![A teaser of ESP datset](sources/graphical_abstract.png)](https://youtu.be/SsYsCZs2Sys?si=iXvVQ3KHNAICLutS)
 </div>
 
 ## News
