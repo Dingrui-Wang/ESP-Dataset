@@ -4,7 +4,7 @@
 
 #### ESP: Extro-Spective Prediction for Long-term Behavior Reasoning in Emergency Scenarios
 
-![Tokens Visualization](video_grid.gif)
+![Tokens Visualization](./sources/video_grid.gif)
 
  ### [Introduction](#introduction) | [Video](#video) | [News](#news) | [Dataset](#dataset) | [Download](#download) | [Website](https://esp-dataset.github.io/) | [Paper](https://arxiv.org/pdf/2405.04100)
 </div>
