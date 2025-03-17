@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+opencv-python
+imageio
+scipy
+shapely
+geopandas
+tqdm
+multipledispatch
+huggingface_hub

@@ -5,6 +5,10 @@ import os
 import pickle
 from io import BytesIO
 from pathlib import Path
+import multiprocessing
+from functools import partial
+import re
+import uuid
 
 import cv2
 import geopandas as gpd
@@ -18,11 +22,59 @@ from shapely import affinity
 from shapely.geometry import box
 from tqdm import tqdm
 
-from utils.multiprocess_warp import multiprocessing_func, process_map
-from utils.road_model_operator import RoadModelOperator
-from utils.utils import is_valid_uuid, wcs_to_vcs
+from tools.road_model_operator import RoadModelOperator
+from tools.utils import wcs_to_vcs
 
-CONFIG = json.load(open("config.json", "rb"))
+
+# Define is_valid_uuid function
+def is_valid_uuid(uuid_string):
+    """
+    Check if the provided string is a valid UUID.
+    
+    Args:
+        uuid_string (str): The string to check
+        
+    Returns:
+        bool: True if the string is a valid UUID, False otherwise
+    """
+    try:
+        # Try to parse the string as a UUID
+        uuid_obj = uuid.UUID(uuid_string)
+        # Check if the string representation matches the original
+        return str(uuid_obj) == uuid_string
+    except (ValueError, AttributeError):
+        return False
+
+
+# Define the multiprocessing functions directly in this file
+def process_map(func, args_list, process_name="", num_works=None):
+    """Process a list of arguments with the given function using multiple processes."""
+    if num_works is None:
+        num_works = multiprocessing.cpu_count() // 2
+
+    with multiprocessing.Pool(processes=num_works) as pool:
+        if process_name:
+            results = list(tqdm(pool.imap(func, args_list), total=len(args_list), desc=process_name))
+        else:
+            results = list(pool.imap(func, args_list))
+    return results
+
+
+def multiprocessing_func(func, args_list, process_name="", num_works=None):
+    """Process a list of argument pairs with the given function using multiple processes."""
+    if num_works is None:
+        num_works = multiprocessing.cpu_count() // 2
+    
+    # Handle the case where args_list contains pairs of arguments
+    def wrapper(args):
+        return func(*args)
+    
+    with multiprocessing.Pool(processes=num_works) as pool:
+        if process_name:
+            results = list(tqdm(pool.imap(wrapper, args_list), total=len(args_list), desc=process_name))
+        else:
+            results = list(pool.imap(wrapper, args_list))
+    return results
 
 
 class TokenBevGenerator:
@@ -167,7 +219,7 @@ class TokenBevGenerator:
 class MomentBevGenerator:
     def __init__(self, mon_id):
         self.mon_id = mon_id
-        self.path = CONFIG["mon_data_dir"] + "/" + mon_id
+        self.path = "./mons" + "/" + mon_id
         files = os.listdir(self.path)
         self.tokens = []
         for f in files:
@@ -188,7 +240,7 @@ class MomentBevGenerator:
 if __name__ == "__main__":
     import os
 
-    files = os.listdir("/mnt/data_cpfs/zheyuan/esp_dataset_process/json_data")
+    files = os.listdir("./mons")
     existed_files = os.listdir("/mnt/data_cpfs/zheyuan/esp_dataset_process/video_data/")
     existed_token = []
     for f in existed_files:
@@ -199,10 +251,10 @@ if __name__ == "__main__":
         if is_valid_uuid(f[: min(len(f), 36)]) and f[:36] not in tokens and f[:36] not in existed_token:
             tokens.append(f[:36])
             token_args.append(
-                ["/mnt/data_cpfs/zheyuan/esp_dataset_process/json_data", f[:36]]
+                ["mons", f[:36]]
             )
-    # prp = TokenBevGenerator("/mnt/data_cpfs/zheyuan/esp_dataset_process/json_data", tokens[0])
-    # prp.write_video("test5.mp4")
+    prp = TokenBevGenerator("/mnt/data_cpfs/zheyuan/esp_dataset_process/json_data", tokens[0])
+    prp.write_video("test5.mp4")
     def process_mon(path,token):
         try:
             prp = TokenBevGenerator(path,token)

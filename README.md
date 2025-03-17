@@ -4,6 +4,8 @@
 
 #### ESP: Extro-Spective Prediction for Long-term Behavior Reasoning in Emergency Scenarios
 
+![Tokens Visualization](video_grid.gif)
+
  ### [Introduction](#introduction) | [Video](#video) | [News](#news) | [Dataset](#dataset) | [Download](#download) | [Website](https://esp-dataset.github.io/) | [Paper](https://arxiv.org/pdf/2405.04100)
 </div>
 
@@ -29,6 +31,15 @@ Click the following Graphical Abstract for the illustration video!
 - [**Jul 24, 2024**] The full dataset is released.
 - [**Jun 10, 2024**] A mini split of the dataset is released.
 
+## Visualization
+
+## Quick Install
+
+```bash
+git clone https://github.com/ESP-Dataset/ESP-Dataset.git
+cd ESP-Dataset
+pip install -r requirements.txt
+```
 
 ## Dataset
 The dataset structure of tokens is shown below:
@@ -110,8 +121,9 @@ The full dataset contains three separate files: "tokens," "tokens_by_mons." The 
 [Download ESP-Dataset Full Dataset](https://drive.google.com/drive/folders/1Yhv7y7owlYQ2bJF1m56iqPgsQKvEj0Ik?usp=sharing) 
 
 [Download ESP-Dataset Maps](https://huggingface.co/datasets/Etadingrui/ESP) 
-
-
+```bash
+huggingface-cli download Etadingrui/ESP --repo-type dataset --local-dir /home/alienware3/ESP-Dataset/map
+```
 ## Citation
 If using our data in your research work, please cite the following paper:
 ```

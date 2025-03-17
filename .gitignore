@@ -1,0 +1,39 @@
+# Specific directories to ignore
+maps/
+anno_data/
+scenario_visualization/
+mons/
+
+# Specific files to ignore
+find_cut_in_scenarios.py
+find_token_jsons.py
+keep_only_mp4.py
+
+# Common system files to ignore
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo 
