@@ -8,7 +8,7 @@ import imageio
 def create_video_grid_animation(input_folder, output_gif_path, grid_size=(7, 7), fps=10, 
                                optimize_size=True, resize_factor=1.0,
                                center_duration=3, full_grid_duration=3, transition_duration=8,
-                               output_resolution=(1280, 1280)):
+                               output_resolution=(1440, 1440)):
     """
     Create a 5x5 grid of videos with zoom animation and save as GIF.
     
@@ -201,7 +201,7 @@ if __name__ == "__main__":
     parser.add_argument('--grid-time', type=float, default=3, help='Time to show full grid (seconds)')
     parser.add_argument('--transition-time', type=float, default=8, help='Time for zoom transitions (seconds)')
     parser.add_argument('--resize', type=float, default=0.5, help='Resize factor for videos (smaller = smaller GIF)')
-    parser.add_argument('--resolution', type=int, default=1280, help='Output resolution (square)')
+    parser.add_argument('--resolution', type=int, default=1440, help='Output resolution (square)')
     parser.add_argument('--no-optimize', action='store_false', dest='optimize', 
                         help='Disable GIF size optimization')
     
