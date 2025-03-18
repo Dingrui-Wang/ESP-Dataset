@@ -111,8 +111,9 @@ def create_video_grid_animation(input_folder, output_gif_path, grid_size=(7, 7),
         visible_x = center_x + frame_width/2 - visible_width/2
         visible_y = center_y + frame_height/2 - visible_height/2
         
-        # Create a blank grid image
-        grid_image = np.zeros((grid_height, grid_width, 3), dtype=np.uint8)
+        # Create a blank grid image with white background instead of black
+        # Using 255 for all BGR channels to ensure pure white
+        grid_image = np.ones((grid_height, grid_width, 3), dtype=np.uint8) * 255
         
         # Read current frame from each video and place in grid
         for i, cap in enumerate(video_captures):
@@ -153,6 +154,12 @@ def create_video_grid_animation(input_folder, output_gif_path, grid_size=(7, 7),
         
         # Convert from BGR to RGB for PIL
         output_frame_rgb = cv2.cvtColor(output_frame, cv2.COLOR_BGR2RGB)
+        
+        # Ensure pure white background by thresholding near-white colors
+        # This fixes any color shifts from interpolation during resizing
+        white_mask = (output_frame_rgb > 245).all(axis=2)
+        output_frame_rgb[white_mask] = [255, 255, 255]
+        
         pil_image = Image.fromarray(output_frame_rgb)
         
         frames_for_gif.append(pil_image)
